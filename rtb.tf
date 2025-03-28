@@ -39,12 +39,22 @@ resource "aws_route_table" "netflix-app-rt" {
 }
 
 # Associate Route Table with Private Subnets
-resource "aws_route_table_association" "netflix-pvt-assoc-1" {
+resource "aws_route_table_association" "netflix-pvt-assoc-3" {
   subnet_id      = aws_subnet.netflix-priv-sub-1.id
   route_table_id = aws_route_table.netflix-app-rt.id
 }
 
-resource "aws_route_table_association" "netflix-pvt-assoc-2" {
+resource "aws_route_table_association" "netflix-pvt-assoc-4" {
+  subnet_id      = aws_subnet.netflix-priv-sub-1.id
+  route_table_id = aws_route_table.netflix-app-rt.id
+}
+
+resource "aws_route_table_association" "netflix-pvt-assoc-5" {
+  subnet_id      = aws_subnet.netflix-priv-sub-1.id
+  route_table_id = aws_route_table.netflix-app-rt.id
+}
+
+resource "aws_route_table_association" "netflix-pvt-assoc-6" {
   subnet_id      = aws_subnet.netflix-priv-sub-1.id
   route_table_id = aws_route_table.netflix-app-rt.id
 }
