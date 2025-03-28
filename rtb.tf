@@ -1,5 +1,5 @@
 # Create Route Table for Public Subnets
-resource "aws_route_table" "netflix-public-rt" {
+resource "aws_route_table" "netflix-web-rt" {
   vpc_id = aws_vpc.netflix-vpc.id
 
   route {
