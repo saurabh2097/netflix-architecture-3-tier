@@ -49,7 +49,6 @@ resource "aws_route_table_association" "netflix-pvt-assoc-2" {
   route_table_id = aws_route_table.netflix-app-rt.id
 }
 
-
 # Create a NAT Gateway for Private Subnets
 resource "aws_eip" "netflix-nat-eip" {
   domain = "vpc"
