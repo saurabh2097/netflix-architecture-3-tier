@@ -4,7 +4,7 @@ resource "aws_route_table" "netflix-public-rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.swiggy-igw.id
+    gateway_id = aws_internet_gateway.netflix-gw.id
   }
 
   tags = {
