@@ -50,12 +50,12 @@ resource "aws_route_table_association" "netflix-pvt-assoc-4" {
 }
 
 resource "aws_route_table_association" "netflix-pvt-assoc-5" {
-  subnet_id      = aws_subnet.netflix-db-sub-1.id
+  subnet_id      = aws_subnet.netflix-db-sub-5.id
   route_table_id = aws_route_table.netflix-app-rt.id
 }
 
 resource "aws_route_table_association" "netflix-pvt-assoc-6" {
-  subnet_id      = aws_subnet.netflix-db-sub-1.id
+  subnet_id      = aws_subnet.netflix-db-sub-6.id
   route_table_id = aws_route_table.netflix-app-rt.id
 }
 
