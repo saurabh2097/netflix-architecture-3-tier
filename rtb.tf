@@ -8,19 +8,19 @@ resource "aws_route_table" "netflix-web-rt" {
   }
 
   tags = {
-    Name = "netflix-public-rt"
+    Name = "netflix-web-rt"
   }
 }
 
 # Associate Route Table with Public Subnets
 resource "aws_route_table_association" "netflix-pub-assoc-1" {
   subnet_id      = aws_subnet.netflix-pub-sub-1.id
-  route_table_id = aws_route_table.netflix-public-rt.id
+  route_table_id = aws_route_table.netflix-web-rt.id
 }
 
 resource "aws_route_table_association" "netflix-pub-assoc-2" {
   subnet_id      = aws_subnet.netflix-pub-sub-2.id
-  route_table_id = aws_route_table.netflix-public-rt.id
+  route_table_id = aws_route_table.netflix-web-rt.id
 }
 
 # Create a NAT Gateway for Private Subnets
