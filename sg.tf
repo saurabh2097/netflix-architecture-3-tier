@@ -81,8 +81,8 @@ resource "aws_security_group" "netflix-sg-lb" {
 
 
 # Create a Security Group for Application Server-----
-resource "aws_security_group" "app_server_sg" {
-  name        = "app-server-sg"
+resource "aws_security_group" "netflix-app-sg-app" {
+  name        = "netflix-app-server-sg"
   description = "Allow HTTP and SSH traffic"
   vpc_id      = aws_vpc.my_vpc.id  # Replace with your VPC ID
 
@@ -91,6 +91,13 @@ resource "aws_security_group" "app_server_sg" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]  # Allow HTTP traffic from anywhere
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -105,5 +112,8 @@ resource "aws_security_group" "app_server_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+tags = {
+    Name = "netflix-app-server-sg"
   }
 }
