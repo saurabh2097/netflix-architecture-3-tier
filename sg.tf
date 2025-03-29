@@ -39,8 +39,8 @@ tags = {
 }
 
 #------ Create a Security Group for Load Balancer
-resource "aws_security_group" "alb_sg" {
-  name        = "alb-security-group"
+resource "aws_security_group" "netflix-sg-lb" {
+  name        = "netflix-alb-security-group"
   description = "Security group for Application Load Balancer to allow HTTP and HTTPS traffic"
 
   # Allow HTTP traffic (port 80) from anywhere (0.0.0.0/0)
@@ -74,7 +74,7 @@ resource "aws_security_group" "alb_sg" {
     protocol    = "-1" # -1 represents all protocols
     cidr_blocks = ["0.0.0.0/0"]
   }
-tags = {
-    Name = "Netflix-ALB-SG"
+  tags = {
+    Name = "netflix-alb-security-group"
   }
 }
