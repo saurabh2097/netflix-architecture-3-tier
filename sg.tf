@@ -120,8 +120,8 @@ tags = {
 
 
 # Security Group for Database
-resource "aws_security_group" "swiggy-db-sg" {
-  name        = "swiggy-db-sg"
+resource "aws_security_group" "netflix-db-sg" {
+  name        = "netflix-db-sg"
   description = "Security group for Swiggy Database"
   vpc_id      = aws_vpc.swiggy-vpc.id
 
