@@ -48,7 +48,7 @@ resource "aws_route_table_association" "netflix-pvt-assoc-4" {
   subnet_id      = aws_subnet.netflix-priv-sub-4.id
   route_table_id = aws_route_table.netflix-app-rt.id
 }
-
+# Associate Route Table with DB- Private Subnets
 resource "aws_route_table_association" "netflix-pvt-assoc-5" {
   subnet_id      = aws_subnet.netflix-db-sub-1.id
   route_table_id = aws_route_table.netflix-app-rt.id
