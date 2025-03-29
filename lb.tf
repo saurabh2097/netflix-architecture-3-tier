@@ -1,10 +1,10 @@
 # Create an Application Load Balancer
-resource "aws_lb" "netflix-app-lb" {
+resource "aws_lb" "netflix-app-lb-external" {
   name               = "netflix-lb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.netflix-lb-sg.id]
-  subnets            = ["subnet-xxxxxxxx", "subnet-yyyyyyyy"] # Replace with your subnet IDs
+  subnets            = [aws_subnet.swiggy-pub-sub-1.id, aws_subnet.swiggy-pub-sub-2.id]
   enable_deletion_protection = false
 
 }
