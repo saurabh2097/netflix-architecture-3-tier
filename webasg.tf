@@ -1,5 +1,5 @@
 # Auto Scaling Group
-resource "aws_autoscaling_group" "netflix-web-asg" {
+resource "aws_autoscaling_group" "netflix-web-server-asg" {
 name = "swiggy-web-asg"
 launch template{
   id  = aws_launch_configuration.netflix-web_config.id
