@@ -1,10 +1,10 @@
 # Create an Application Load Balancer
 resource "aws_lb" "netflix-app-lb-external" {
-  name               = "netflix-lb"
+  name               = "netflix-app-lb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.netflix-lb-sg.id]
-  subnets            = [aws_subnet.swiggy-pub-sub-1.id, aws_subnet.swiggy-pub-sub-2.id]
+  subnets            = [aws_subnet.netflix-pub-sub-.id, aws_subnet.netflix-pub-sub2.id]
   enable_deletion_protection = false
 
 }
@@ -25,3 +25,8 @@ resource "aws_lb_target_group" "app_target_group" {
   }
 }
 
+# Attach Auto Scaling Group Instances to Target Group
+resource "aws_autoscaling_attachment" "netflix-web-asg-attachment" {
+  autoscaling_group_name = aws_autoscaling_group.swiggy-web-asg.name
+  lb_target_group_arn    = aws_lb_target_group.app_target_group.arn
+}
