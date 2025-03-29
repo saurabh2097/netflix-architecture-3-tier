@@ -6,4 +6,5 @@ resource "aws_nat_gateway" "netflix-nat-gateway" {
   tags = {
     Name = "netflix-natgw-01"
   }
+depends_on = [aws_internet_gateway.swiggy-igw]
 }
