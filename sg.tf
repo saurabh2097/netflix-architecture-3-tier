@@ -2,6 +2,7 @@
 resource "aws_security_group" "netflix-web-sg" {
   name        = "netflix-web-server-sg"
   description = "Security group for web servers"
+ vpc_id   = aws_vpc.netflix-vpc.id
 
   # Allow HTTP traffic from anywhere
   ingress {
@@ -42,6 +43,7 @@ tags = {
 resource "aws_security_group" "netflix-sg-lb" {
   name        = "netflix-alb-security-group"
   description = "Security group for Application Load Balancer to allow HTTP and HTTPS traffic"
+ vpc_id   = aws_vpc.netflix-vpc.id
 
   # Allow HTTP traffic (port 80) from anywhere (0.0.0.0/0)
   ingress {
@@ -75,7 +77,7 @@ resource "aws_security_group" "netflix-sg-lb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "netflix-alb-security-group"
+    Name = "Netflix-alb-security-group"
   }
 }
 
@@ -84,7 +86,7 @@ resource "aws_security_group" "netflix-sg-lb" {
 resource "aws_security_group" "netflix-app-sg-app" {
   name        = "netflix-app-server-sg"
   description = "Allow HTTP and SSH traffic"
-  vpc_id      = aws_vpc.my_vpc.id  # Replace with your VPC ID
+   vpc_id   = aws_vpc.netflix-vpc.id
 
   ingress {
     from_port   = 80
@@ -114,7 +116,7 @@ resource "aws_security_group" "netflix-app-sg-app" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 tags = {
-    Name = "netflix-app-server-sg"
+    Name = "Netflix-app-server-sg"
   }
 }
 
@@ -123,7 +125,7 @@ tags = {
 resource "aws_security_group" "netflix-db-sg" {
   name        = "netflix-db-sg"
   description = "Security group for Swiggy Database"
-  vpc_id      = aws_vpc.swiggy-vpc.id
+   vpc_id   = aws_vpc.netflix-vpc.id
 
   ingress {
     from_port = 3306 # MySQL/Aurora port
@@ -146,6 +148,6 @@ resource "aws_security_group" "netflix-db-sg" {
   }
 
   tags = {
-    Name = "Swiggy DB SG"
+    Name = "Netflix-db-sg"
   }
 }
