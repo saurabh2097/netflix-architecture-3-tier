@@ -14,7 +14,7 @@ resource "aws_db_instance" "netflix-db" {
   username                    = "admin"
   password                    = "Devopsbysaurabh20*"
   parameter_group_name        = "default.mysql8.0"
-  db_subnet_group_name        = aws_db_subnet_group.swiggy-db-sub-grp.name
+  db_subnet_group_name        = aws_db_subnet_group.netflix-db-sub-grp.name
   vpc_security_group_ids      = ["${aws_security_group.netflix-db-sg.id}"]
   multi_az                    = true
   skip_final_snapshot         = true
