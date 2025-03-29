@@ -16,7 +16,7 @@ launch template{
 # Launch Configuration for EC2 Instances
 resource "aws_launch_configuration" "netflix-web_config" {
   name          = "netflix-web-template"
-  image_id      = "ami-0c55b159cbfafe1f0"  # Example AMI, use your own
+  image_id      = "ami-02f624c08a83ca16f"  
   instance_type = "t2.micro"
   security_groups = [aws_security_group.web_sg.id]
 
