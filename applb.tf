@@ -27,6 +27,6 @@ resource "aws_lb_target_group" "app_target_group" {
 
 # Attach Auto Scaling Group Instances to Target Group
 resource "aws_autoscaling_attachment" "netflix-web-asg-attachment" {
-  autoscaling_group_name = aws_autoscaling_group.swiggy-web-asg.name
+  autoscaling_group_name = aws_autoscaling_group.netflix-web-server-asg.name
   lb_target_group_arn    = aws_lb_target_group.app_target_group.arn
 }
