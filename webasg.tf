@@ -18,7 +18,7 @@ resource "aws_launch_configuration" "netflix-web_config" {
   name          = "netflix-web-template"
   image_id      = "ami-02f624c08a83ca16f"  
   instance_type = "t2.micro"
-  security_groups = [aws_security_group.web_sg.id]
+  security_groups = [aws_security_group.netflix-web-sg.id]
 
   user_data = base64encode(file(netflix.sh))
   lifecycle {
