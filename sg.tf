@@ -1,4 +1,4 @@
-# Create a Security Group for WEB ASG
+# Create a Security Group for web ASG
 resource "aws_security_group" "netflix-web-sg" {
   name        = "netflix-web-server-sg"
   description = "Security group for web servers"
