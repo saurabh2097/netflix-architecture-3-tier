@@ -30,6 +30,7 @@ resource "aws_launch_configuration" "netflix-app-server-asgg" {
     #!/bin/bash
 
     sudo yum install mysql -y
+
   EOF
   )
 
