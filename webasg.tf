@@ -23,9 +23,11 @@ resource "aws_launch_template" "netflix-web-template" {
   name          = "netflix-web-template"
   image_id      = "ami-02f624c08a83ca16f"  
   instance_type = "t2.micro"
-  
-  security_groups = [aws_security_group.netflix-web-sg.id]
 
+   network_interfaces {
+    associate_public_ip_address = true
+    security_groups = [aws_security_group.netflix-web-sg.id]
+  }
   user_data = base64encode(file("netflix.sh"))  # Ensure the file exists
 
   lifecycle {
