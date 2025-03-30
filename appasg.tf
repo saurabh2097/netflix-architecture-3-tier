@@ -6,8 +6,8 @@ launch template{
   version = "$Latest"
 }
   vpc_zone_identifier = [
-    aws_subnet.swiggy-pvt-sub-1.id,
-    aws_subnet.swiggy-pvt-sub-2.id
+    aws_subnet.netflix-priv-sub-1.id,
+    aws_subnet.netflix-priv-sub-1.id
   ]
   min_size             = 2
   max_size             = 3
