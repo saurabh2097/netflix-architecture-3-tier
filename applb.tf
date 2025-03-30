@@ -14,7 +14,7 @@ resource "aws_lb_target_group" "app_target_group" {
   name     = "netflix-app-target-group"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "aws_vpc.netflix-vpc.id"
+  vpc_id   = aws_vpc.netflix-vpc.id
 
   health_check {
     path                = "/"
