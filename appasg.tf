@@ -22,10 +22,9 @@ resource "aws_launch_configuration" "netflix-app-server-asgg" {
   image_id      = "ami-02f624c08a83ca16f"  
   instance_type = "t2.micro"
 
-  network_interfaces {
   security_groups = [aws_security_group.netflix-app-sg-app.id]
   associate_public_ip_address = false
-}
+
   user_data = base64encode(<<-EOF
     #!/bin/bash
 
