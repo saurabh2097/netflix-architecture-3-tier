@@ -65,3 +65,4 @@ resource "aws_eip" "netflix-nat-eip" {
   tags = {
     Name = "netflix-nat-eip"
 }
+}
