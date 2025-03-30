@@ -53,13 +53,6 @@ resource "aws_security_group" "netflix-sg-lb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
- # Allow HTTP traffic (port 22) from anywhere (0.0.0.0/0)
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 
   # Allow all outbound traffic (default behavior)
   egress {
