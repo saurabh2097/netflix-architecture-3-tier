@@ -41,14 +41,14 @@ resource "aws_security_group" "netflix-sg-lb" {
   from_port   = 80
   to_port     = 80
   protocol    = "tcp"
-  security_groups = [aws_security_group.netflix-sg-lb.id]  # Allow traffic from LB security group
+  security_groups = [aws_security_group.netflix-app-sg-app.id]
 }
 
 ingress {
   from_port   = 443
   to_port     = 443
   protocol    = "tcp"
-  security_groups = [aws_security_group.netflix-sg-lb.id]  # Allow traffic from LB security group
+ security_groups = [aws_security_group.netflix-app-sg-app.id]
 }
 
 
