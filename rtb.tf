@@ -63,5 +63,5 @@ resource "aws_route_table_association" "netflix-pvt-assoc-6" {
 resource "aws_eip" "netflix-nat-eip" {
   domain = "vpc"
   tags = {
-    Name = "netflix-nat-eip
+    Name = "netflix-nat-eip"
 }
