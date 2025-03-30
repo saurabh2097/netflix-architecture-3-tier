@@ -102,13 +102,6 @@ resource "aws_security_group" "netflix-app-sg-app" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow SSH traffic from anywhere (consider restricting for security)
-  }
-
   egress {
     from_port   = 0
     to_port     = 0
