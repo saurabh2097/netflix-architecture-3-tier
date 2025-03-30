@@ -4,7 +4,7 @@ resource "aws_lb" "netflix-app-lb-external" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.netflix-sg-lb.id]
-  subnets            = [aws_subnet.netflix-pub-sub-.id, aws_subnet.netflix-pub-sub2.id]
+  subnets            = [aws_subnet.netflix-pub-sub-1.id, aws_subnet.netflix-pub-sub-2.id]
   enable_deletion_protection = false
 
 }
