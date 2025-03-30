@@ -1,7 +1,7 @@
 #### RDS ####
 resource "aws_db_subnet_group" "netflix-db-sub-grp" {
   name       = "netflix-db-sub-grp"
-  subnet_ids = ["${aws_subnet.netflix-pvt-sub-3.id}","${aws_subnet.netflix-pvt-sub-4.id}"]
+  subnet_ids = ["${aws_subnet.netflix-db-sub-1.id}","${aws_subnet.netflix-db-sub-2.id}"]
 }
 
 resource "aws_db_instance" "netflix-db" {
