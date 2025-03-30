@@ -17,7 +17,7 @@ resource "aws_lb_target_group" "app_target_group" {
   vpc_id   = aws_vpc.netflix-vpc.id
 
   health_check {
-    path                = "/"
+    path                = "/health"
     interval            = 30
     timeout             = 5
     healthy_threshold   = 3
