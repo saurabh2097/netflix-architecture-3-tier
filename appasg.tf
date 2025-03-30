@@ -22,6 +22,7 @@ resource "aws_launch_template" "netflix-app-server-template" {
   name          = "netflix-app-template"
   image_id      = "ami-02f624c08a83ca16f"
   instance_type = "t2.micro"
+  key_name      = "saurabhkeypair"
 
   network_interfaces {
     security_groups             = [aws_security_group.netflix-app-sg-app.id]
