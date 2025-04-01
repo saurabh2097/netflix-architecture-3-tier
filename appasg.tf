@@ -36,7 +36,7 @@ resource "aws_launch_template" "netflix-app-server-template" {
   )
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
     ignore_changes  = all
   }
 }
