@@ -23,6 +23,7 @@ resource "aws_launch_template" "netflix-web-template" {
   name          = "netflix-web-template"
   image_id      = "ami-02f624c08a83ca16f"  
   instance_type = "t2.micro"
+key_name      = "saurabhkeypair"
 
    network_interfaces {
     associate_public_ip_address = true
