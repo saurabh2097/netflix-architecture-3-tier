@@ -30,3 +30,16 @@ resource "aws_autoscaling_attachment" "netflix-web-asg-attachment" {
   autoscaling_group_name = aws_autoscaling_group.netflix-web-asg.name
   lb_target_group_arn    = aws_lb_target_group.external-elb.arn
 }
+
+
+# Create a Listener for Load Balancer
+resource "aws_lb_listener" "external" {
+  load_balancer_arn = aws_lb.external.arn
+  port              = 80
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.external-elb.arn
+  }
+}
