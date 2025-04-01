@@ -16,7 +16,7 @@ resource "aws_launch_template" "netflix-web-template" {
   name_prefix   = "netflix-web-template"
   image_id      = "ami-02f624c08a83ca16f"
   instance_type = "t2.medium"
-  key_name      = "saurabhkeypair"
+  key_name      = "saurabhteraformkeypair"
   network_interfaces {
     associate_public_ip_address = true
     security_groups             = [aws_security_group.netflix-ec2-asg-sg.id]
