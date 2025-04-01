@@ -1,5 +1,5 @@
 # Create an S3 Bucket
-resource "aws_s3_bucket" "saurabh_bucket" {
-  bucket = "swiggy-saurabh-bucket-terraform"
+resource "aws_s3_bucket" "example_bucket" {
+  bucket = "netflix-bucket-terraform"
 
 }
