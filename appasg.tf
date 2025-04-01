@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "netflix-app-asg" {
 resource "aws_launch_template" "netflix-app-template" {
   name_prefix   = "netflix-app-template"
   image_id      = "ami-02f624c08a83ca16f"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name      = "saurabhkeypair"
 
   network_interfaces {
