@@ -9,14 +9,19 @@ resource "aws_security_group" "netflix-web-sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    security_groups = [aws_security_group.netflix-sg-lb.id]
+    cidr_blocks = ["0.0.0.0/0"]
   }
-  
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    security_groups = [aws_security_group.netflix-sg-lb.id] 
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # Allow all outbound traffic
@@ -41,14 +46,21 @@ resource "aws_security_group" "netflix-sg-lb" {
   from_port   = 80
   to_port     = 80
   protocol    = "tcp"
-  security_groups = [aws_security_group.netflix-app-sg-app.id]
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
+ ingress {
+  from_port   = 22
+  to_port     = 22
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 ingress {
   from_port   = 443
   to_port     = 443
   protocol    = "tcp"
- security_groups = [aws_security_group.netflix-app-sg-app.id]
+ cidr_blocks = ["0.0.0.0/0"]
 }
 
 
