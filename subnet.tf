@@ -1,68 +1,60 @@
-# Create Public Subnets
+# Public Subnets 
 resource "aws_subnet" "netflix-pub-sub-1" {
-  vpc_id                  = aws_vpc.netflix-vpc.id
-  cidr_block              = "10.0.1.0/24"
+  vpc_id                  = aws_vpc.swiggy-vpc.id
+  cidr_block              = "10.0.0.0/28"
   availability_zone       = "us-east-1a"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = "true"
 
   tags = {
-    Name = "netflix-public-subnet-1"
+    Name = "netflix-pub-sub-1"
   }
 }
 
 resource "aws_subnet" "netflix-pub-sub-2" {
   vpc_id                  = aws_vpc.netflix-vpc.id
-  cidr_block              = "10.0.2.0/24"
+  cidr_block              = "10.0.0.16/28"
   availability_zone       = "us-east-1b"
-  map_public_ip_on_launch = true
-
+  map_public_ip_on_launch = "true"
   tags = {
-    Name = "netflix-public-subnet-2"
+    Name = "netflix-pub-sub-2"
   }
 }
 
-# Create Private Subnets for Application Servers
-resource "aws_subnet" "netflix-priv-sub-1" {
+# Private Subnets
+resource "aws_subnet" "netflix-pvt-sub-1" {
   vpc_id                  = aws_vpc.netflix-vpc.id
-  cidr_block              = "10.0.3.0/24"
+  cidr_block              = "10.0.0.32/28"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = false
-
   tags = {
-    Name = "netflix-private-subnet-1"
+    Name = "netflix-pvt-sub-1"
   }
 }
-
-resource "aws_subnet" "netflix-priv-sub-2" {
+resource "aws_subnet" "netflix-pvt-sub-2" {
   vpc_id                  = aws_vpc.netflix-vpc.id
-  cidr_block              = "10.0.4.0/24"
+  cidr_block              = "10.0.0.48/28"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = false
-
   tags = {
-    Name = "netflix-private-subnet-2"
+    Name = "netflix-pvt-sub-2"
   }
 }
 
-# Create Private Subnets for Databases
-resource "aws_subnet" "netflix-db-sub-1" {
+resource "aws_subnet" "netflix-pvt-sub-3" {
   vpc_id                  = aws_vpc.netflix-vpc.id
-  cidr_block              = "10.0.5.0/24"
+  cidr_block              = "10.0.0.64/28"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = false
-
   tags = {
-    Name = "netflix-db-subnet-1"
+    Name = "netflix-pvt-sub-3"
   }
 }
-
-resource "aws_subnet" "netflix-db-sub-2" {
+resource "aws_subnet" "netflix-pvt-sub-4" {
   vpc_id                  = aws_vpc.netflix-vpc.id
-  cidr_block              = "10.0.6.0/24"
+  cidr_block              = "10.0.0.80/28"
   availability_zone       = "us-east-1b"
   map_public_ip_on_launch = false
-
   tags = {
-    Name = "netflix-db-subnet-2"
+    Name = "netflix-pvt-sub-4"
   }
 }
