@@ -14,7 +14,7 @@ resource "aws_autoscaling_group" "netflix-web-asg" {
 ###### Create a Launch Template for the EC2 instances ######
 resource "aws_launch_template" "netflix-web-template" {
   name_prefix   = "netflix-web-template"
-  image_id      = "ami-02f624c08a83ca16f1"
+  image_id      = "ami-02f624c08a83ca16f"
   instance_type = "t2.micro"
   key_name      = "saurabhkeypair"
   network_interfaces {
