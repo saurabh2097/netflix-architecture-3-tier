@@ -21,7 +21,7 @@ resource "aws_launch_template" "netflix-web-template" {
     associate_public_ip_address = true
     security_groups             = [aws_security_group.netflix-ec2-asg-sg.id]
   }
-  user_data = base64encode(file("netflix.sh"))
+  user_data = base64encode(file("netflix1.sh"))
   lifecycle {
     prevent_destroy = false
     ignore_changes  = all
