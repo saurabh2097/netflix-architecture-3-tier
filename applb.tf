@@ -26,7 +26,7 @@ resource "aws_lb_target_group" "external-elb" {
 }
 
 # Attach Auto Scaling Group Instances to Target Group
-resource "aws_autoscaling_attachment" "swiggy-web-asg-attachment" {
+resource "aws_autoscaling_attachment" "netflix-web-asg-attachment" {
   autoscaling_group_name = aws_autoscaling_group.netflix-web-asg.name
   lb_target_group_arn    = aws_lb_target_group.external-elb.arn
 }
